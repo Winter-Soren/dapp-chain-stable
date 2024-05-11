@@ -1,0 +1,3178 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../api/json-rpc-bridge/">
+      
+      
+        <link rel="next" href="../../interfaces/erc20/native-erc20/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Config parameter reference - HAS docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#polybft-configuration-parameter-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HAS docs" class="md-header__button md-logo" aria-label="HAS docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAS docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Config parameter reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HAS docs" class="md-nav__button md-logo" aria-label="HAS docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HAS docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is HAS-Chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            System design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consensus
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Consensus
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/consensus/polybft/protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consensus protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/consensus/polybft/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polygon Byzantine Fault Tolerance (PolyBFT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/consensus/polybft/ibft/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Istanbul Byzantine Fault Tolerance (IBFT) 2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/libp2p/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Runtime
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Runtime
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/runtime/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/runtime/allowlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access control list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/mempool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MemoryPool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/txpool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction pool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/txrelayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction relayer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/jsonrpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON-RPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/grpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Build an HAS-powered chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Build an HAS-powered chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Prepare your environment
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Prepare your environment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install binaries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deploy a chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deploy a chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/local-chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to spawn a new child chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/genesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure a new child chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/rootchain-config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure the rootchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/genesis-validators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure the initial validator set
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/start-chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to start your chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Operate your chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Operate your chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Access control
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Access control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/access-control/allowlist-general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to add and remove accounts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Staking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Staking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/staking/stake/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to stake
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/staking/unstake/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to unstake
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transfers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Transfers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/transfers/deposit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to deposit (rootchain->childchain)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/transfers/withdraw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to withdrw (childchain->rootchain)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Assessment Framework
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Assessment Framework
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assessment/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assessment/algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RPC APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            RPC APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/json-rpc-eth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethereum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/json-rpc-net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Net
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/json-rpc-web3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/json-rpc-txpool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TxPool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/json-rpc-debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/json-rpc-bridge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bridge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Config parameter reference
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Config parameter reference
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#polybft-configuration-parameter-reference" class="md-nav__link">
+    PolyBFT Configuration Parameter Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genesis-configuration-parameter-reference" class="md-nav__link">
+    Genesis Configuration Parameter Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-configuration-parameter-reference" class="md-nav__link">
+    Server Configuration Parameter Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Smart contract interfaces
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Smart contract interfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ERC20
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            ERC20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc20/native-erc20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NativeERC20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc20/childerc20-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC20Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc20/childerc20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc20/rooterc20-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RootERC20Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ERC721
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ERC721
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc721/childerc721/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC721
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc721/childerc721-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC721Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc721/rooterc721-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RootERC721Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ERC1155
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ERC1155
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc1155/childerc1155/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC1155
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc1155/childerc1155-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC1155Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/erc1155/rooterc1155-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RootERC1155Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/eip1559/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EIP1559Burn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_5" id="__nav_6_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/network/checkpoint-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CheckpointManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/network/exit-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ExitHelper
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/network/state-receiver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StateReceiver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/network/state-sender/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StateSender
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_6" id="__nav_6_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Validators
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Validators
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/validators/validator-set-base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ValidatorSetBase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_7" id="__nav_6_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Staking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Staking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/staking/stake-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StakeManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/staking/supernet-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SupernetManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/staking/custom-supernet-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CustomSupernetManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_8" id="__nav_6_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cryptography
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Cryptography
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/cryptography/bls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BLS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/cryptography/bn256g2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BN256G2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmarks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance benchmarks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#polybft-configuration-parameter-reference" class="md-nav__link">
+    PolyBFT Configuration Parameter Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genesis-configuration-parameter-reference" class="md-nav__link">
+    Genesis Configuration Parameter Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-configuration-parameter-reference" class="md-nav__link">
+    Server Configuration Parameter Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Config parameter reference</h1>
+
+<p>Configuration parameters are crucial for setting up and operating a Edge-powered chain. You can configure these parameters using the genesis and server commands. Before running these commands, it is essential to generate keys using the polybft-secrets command.</p>
+<p>For information on the available configuration flags and their descriptions for customizing the genesis configuration of an Edge-powered chain, refer to the categorized tabs below.</p>
+<p><Tabs
+defaultValue="polybft"
+values={[
+{ label: 'PolyBFT', value: 'polybft', },
+{ label: 'Genesis', value: 'genesis', },
+{ label: 'Server', value: 'server', },
+]
+}></p>
+<!-- ===================================================================================================================== -->
+<!-- ==================================================== POLYBFT ======================================================== -->
+<!-- ===================================================================================================================== -->
+
+<p><TabItem value="polybft"></p>
+<h2 id="polybft-configuration-parameter-reference">PolyBFT Configuration Parameter Reference</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Default Value</th>
+<th style="text-align: left;">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>--account</code></td>
+<td style="text-align: left;">The flag indicating whether a new account is created</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--config string</code></td>
+<td style="text-align: left;">The path to the SecretsManager config file</td>
+<td style="text-align: left;">""</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--data-dir string</code></td>
+<td style="text-align: left;">The directory for the Polygon Edge data if the local FS is used</td>
+<td style="text-align: left;">""</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--insecure</code></td>
+<td style="text-align: left;">The flag indicating whether the secrets stored locally are encrypted</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--network</code></td>
+<td style="text-align: left;">The flag indicating whether a new Network key is created</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--num int</code></td>
+<td style="text-align: left;">The number of secrets to be created (only for local FS)</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--output</code></td>
+<td style="text-align: left;">The flag indicating whether to output existing secrets</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--private</code></td>
+<td style="text-align: left;">The flag indicating whether the private key is printed</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">NO</td>
+</tr>
+</tbody>
+</table>
+<p>:::info Mutually Exclusive Paramaters</p>
+<ul>
+<li>
+<p><code>--config</code> and <code>--data-dir</code>: These flags are mutually exclusive. Use either <code>--config</code> to specify the path to the SecretsManager config file or <code>--data-dir</code> to set the directory for the Polygon Edge data if the local FS is used.</p>
+</li>
+<li>
+<p><code>--num</code> and <code>--config</code>: These flags are mutually exclusive. Set <code>--num</code> to define the number of secrets to be created (only for local FS) or use <code>--config</code> to provide the SecretsManager config file path.</p>
+</li>
+</ul>
+<p>:::</p>
+<p></TabItem></p>
+<!-- ===================================================================================================================== -->
+<!-- ==================================================== GENESIS ======================================================== -->
+<!-- ===================================================================================================================== -->
+
+<p><TabItem value="genesis"></p>
+<h2 id="genesis-configuration-parameter-reference">Genesis Configuration Parameter Reference</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Default Value</th>
+<th style="text-align: left;">Mandatory</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Reconfigurable at Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>--block-tracker-poll-interval</code></td>
+<td style="text-align: left;">Interval (number of seconds) at which block tracker polls for latest block at rootchain.</td>
+<td style="text-align: left;">1s</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --block-tracker-poll-interval "1s"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--bridge-allow-list-admin</code></td>
+<td style="text-align: left;">List of addresses to use as admin accounts in the bridge allow list.</td>
+<td style="text-align: left;">[]string{}</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --bridge-allow-list-admin "0x2f82ad5785F6f3Fd242e7EC7a03c2cDfBA6cC6D1"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--bridge-allow-list-enabled</code></td>
+<td style="text-align: left;">List of addresses to enable by default in the bridge allow list.</td>
+<td style="text-align: left;">[]string{}</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --bridge-allow-list-enabled "0xbB39871E4e399b22428FdfA9E4e4Ca67842EA8Cd"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--bridge-block-list-admin</code></td>
+<td style="text-align: left;">List of addresses to use as admin accounts in the bridge block list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --bridge-block-list-admin "0xAddress1"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--bridge-block-list-enabled</code></td>
+<td style="text-align: left;">List of addresses to enable by default in the bridge block list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --bridge-block-list-enabled "0xAddress2"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--chain-id</code></td>
+<td style="text-align: left;">The ID of the chain.</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --chain-id "100"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--contract-deployer-allow-list-admin</code></td>
+<td style="text-align: left;">List of addresses to use as admin accounts in the contract deployer allow list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --contract-deployer-allow-list-admin "0xAddress3"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--contract-deployer-allow-list-enabled</code></td>
+<td style="text-align: left;">List of addresses to enable by default in the contract deployer allow list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --contract-deployer-allow-list-enabled "0xAddress4"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--contract-deployer-block-list-admin</code></td>
+<td style="text-align: left;">List of addresses to use as admin accounts in the contract deployer block list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --contract-deployer-block-list-admin "0xAddress5"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--contract-deployer-block-list-enabled</code></td>
+<td style="text-align: left;">List of addresses to enable by default in the contract deployer block list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --contract-deployer-block-list-enabled "0xAddress6"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--ibft-validator</code></td>
+<td style="text-align: left;">Addresses to be used as IBFT validators.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --ibft-validator "0xAddress7"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--ibft-validator-type</code></td>
+<td style="text-align: left;">The type of validators in IBFT.</td>
+<td style="text-align: left;">"bls"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --ibft-validator-type "bls"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--ibft-validators-prefix-path</code></td>
+<td style="text-align: left;">Prefix path for validator folder directory.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --ibft-validators-prefix-path "/path/to/validators"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--max-validator-count</code></td>
+<td style="text-align: left;">The maximum number of validators in the validator set for PoS.</td>
+<td style="text-align: left;">9007199254740990</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --max-validator-count "9007199254740990"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--min-validator-count</code></td>
+<td style="text-align: left;">The minimum number of validators in the validator set for PoS.</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --min-validator-count "1"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--pos</code></td>
+<td style="text-align: left;">Flag indicating use of Proof of Stake IBFT.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --pos</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--proxy-contracts-admin</code></td>
+<td style="text-align: left;">Admin for proxy contracts.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --proxy-contracts-admin "0xAddress8"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--reward-token-code</code></td>
+<td style="text-align: left;">Hex encoded reward token byte code.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --reward-token-code "0xHexCode"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--transactions-allow-list-admin</code></td>
+<td style="text-align: left;">List of addresses to use as admin accounts in the transactions allow list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --transactions-allow-list-admin "0xAddress9"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--transactions-allow-list-enabled</code></td>
+<td style="text-align: left;">List of addresses to enable by default in the transactions allow list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --transactions-allow-list-enabled "0xAddress10"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--transactions-block-list-admin</code></td>
+<td style="text-align: left;">List of addresses to use as admin accounts in the transactions block list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --transactions-block-list-admin "0xAddress11"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--transactions-block-list-enabled</code></td>
+<td style="text-align: left;">List of addresses to enable by default in the transactions block list.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --transactions-block-list-enabled "0xAddress12"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--block-gas-limit</code></td>
+<td style="text-align: left;">The maximum amount of gas used by all transactions in a block</td>
+<td style="text-align: left;">5242880</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --block-gas-limit "10000000"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--block-time</code></td>
+<td style="text-align: left;">The predefined period which determines block creation frequency</td>
+<td style="text-align: left;">2s</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --block-time "10s"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--block-time-drift</code></td>
+<td style="text-align: left;">Configuration for block time drift value (in seconds). Defines the time slot in which a new block can be created</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --block-time-drift "20"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--bootnode</code></td>
+<td style="text-align: left;">MultiAddr URL for p2p discovery bootstrap. This flag can be used multiple times.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --bootnode "/ip4/127.0.0.1/tcp/30301/p2p/16Uiu2HAmBW3zAvTEHGj5DDygJ5AzuvaRdY5wtSLNmkvXfaQensBu"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--burn-contract</code></td>
+<td style="text-align: left;">The burn contract blocks and addresses (format: [block]:[address])</td>
+<td style="text-align: left;">[]string{}</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --burn-contract "0:0x0000000000000000000000000000000000000000"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--consensus</code></td>
+<td style="text-align: left;">The consensus protocol to be used</td>
+<td style="text-align: left;">"polybft"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --consensus polybft</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--dir</code></td>
+<td style="text-align: left;">Represents the file path for the genesis data</td>
+<td style="text-align: left;">"./genesis.json"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --dir "/data/genesis.json"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--epoch-reward</code></td>
+<td style="text-align: left;">Reward size for block sealing</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --epoch-reward "10"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--epoch-size</code></td>
+<td style="text-align: left;">The epoch size for the chain</td>
+<td style="text-align: left;">100000</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --epoch-size "10"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--name</code></td>
+<td style="text-align: left;">The name for the chain</td>
+<td style="text-align: left;">"polygon-edge"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --name "test-chain"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--premine</code></td>
+<td style="text-align: left;">The premined accounts and balances</td>
+<td style="text-align: left;">[]string{}</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --premine 0x85da99c8a7c2c95964c8efd687e95e632fc533d6:1000000000000000000000</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--sprint-size</code></td>
+<td style="text-align: left;">The number of blocks included into a sprint</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --sprint-size "2"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--trieroot</code></td>
+<td style="text-align: left;">Trie root from the corresponding triedb</td>
+<td style="text-align: left;">""</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --trieroot "0xabc123"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--validators</code></td>
+<td style="text-align: left;">Initial validator addresses for the chain</td>
+<td style="text-align: left;">[]string{}</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;"><code>genesis --validators "0x9c106ada8a2a36a9de8d67b347c07156033882e0"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--validators-path</code></td>
+<td style="text-align: left;">Root path containing polybft validators' secrets</td>
+<td style="text-align: left;">"./"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --validators-path "/data/validators"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--validators-secret</code></td>
+<td style="text-align: left;">Validators secrets</td>
+<td style="text-align: left;">[]string{}</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>genesis --validators-secret "0x0101010101010101010101010101010101010101010101010101010101010101"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+</tbody>
+</table>
+<p>:::info Mutually Exclusive Paramaters</p>
+<ul>
+<li><code>--validators</code>: Validators defined by the user (format: <code>&lt;P2P multi address&gt;:&lt;public ECDSA address&gt;:&lt;public BLS key&gt;</code>). If this flag is set, the entire multi address must be specified. If not set, validators configuration will be read from <code>--validators-path</code>.</li>
+<li><code>--validators-path</code>: Root path containing polybft validators' secrets. If <code>--validators</code> flag is not specified, validators' configuration will be read from this path.</li>
+<li><code>--validators-prefix</code>: Folder prefix names for polybft validators' secrets. If <code>--validators</code> flag is set, this prefix will be used for folder names.</li>
+</ul>
+<p>:::</p>
+<p></TabItem></p>
+<!-- ===================================================================================================================== -->
+<!-- ==================================================== SERVER ========================================================= -->
+<!-- ===================================================================================================================== -->
+
+<p><TabItem value="server"></p>
+<h2 id="server-configuration-parameter-reference">Server Configuration Parameter Reference</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Default Value</th>
+<th style="text-align: left;">Mandatory</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Reconfigurable at Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>--grpc-address</code> string</td>
+<td style="text-align: left;">The address of the GRPC interface.</td>
+<td style="text-align: left;">"127.0.0.1:9632"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --grpc-address “0.0.0.0:10000”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--jsonrpc</code> string</td>
+<td style="text-align: left;">The address of the JSON-RPC interface.</td>
+<td style="text-align: left;">"0.0.0.0:8545"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --jsonrpc “0.0.0.0:10002”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--log-level</code> string</td>
+<td style="text-align: left;">The log level for the console output.</td>
+<td style="text-align: left;">“INFO”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --log-level “DEBUG”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--chain</code> string</td>
+<td style="text-align: left;">The genesis file used for starting the chain. The genesis file is generated by running the genesis CLI command.</td>
+<td style="text-align: left;">"./genesis.json"</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --chain “genesis.json”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--config</code> string</td>
+<td style="text-align: left;">The path to the CLI config. Supported extensions are: .json, .hcl, .yaml and .yml. If this flag is set, other flags will be overridden. If some value that will be overridden is not specified in a config file, default value for that parameter is used.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --config “config.json”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--data-dir</code> string</td>
+<td style="text-align: left;">The data directory used for storing Polygon Edge client data.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">Command: server Flag:--data-dir “./test-chain-1”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--libp2p</code> string</td>
+<td style="text-align: left;">The address and port for the libp2p service.</td>
+<td style="text-align: left;">“127.0.0.1:1478”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --libp2p “0.0.0.0:30301”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--prometheus</code> string</td>
+<td style="text-align: left;">The address and port for the prometheus instrumentation service (address:port). If only port is defined (:port) it will bind to 0.0.0.0:port.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --prometheus “0.0.0.0:5001”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--nat</code> string</td>
+<td style="text-align: left;">The external IP address without port, as can be seen by peers. The string specidied can be in IPv4 dotted decimal ("192.0.2.1"), IPv6 ("2001:db8::68"), or IPv4-mapped IPv6 ("::ffff:192.0.2.1") form.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag:--nat "192.0.2.1"</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--dns</code> string</td>
+<td style="text-align: left;">The host DNS address which can be used by a remote peer for connection.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --dns "www.example.com"</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--block-gas-target</code> string</td>
+<td style="text-align: left;">The target block gas limit for the chain. If omitted, the value of the parent block is used which will be the value set by the <code>--block-gas-limit</code> flag of the genesis command. If this flag is set, the block fill take block gas limit of the parent block and increment it by small delta (parentGasLimit /1024). If the block gas target is reached that the value of it will be set as a gas limit for the current block.</td>
+<td style="text-align: left;">0x0</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --block-gas-target “10000000”</td>
+<td style="text-align: left;">YES, this parameter can be changed by stopping the node and then starting it again with the server command and specifying --block-gas-target flag providing the new value e.g. --block-gas-target “60000000”</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--secrets-config</code> string</td>
+<td style="text-align: left;">The path to the SecretsManager config file. Used for Hashicorp Vault. If omitted, the local FS secrets manager is used.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --secret-config “hashicorp.json”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--restore</code> string</td>
+<td style="text-align: left;">The path to the archive blockchain data to restore on initialization.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --restore</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--seal</code></td>
+<td style="text-align: left;">The flag indicating that the client should seal blocks.</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --seal</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--no-discover</code></td>
+<td style="text-align: left;">Prevent the client from discovering other peers.</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --no-discover</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--max-peers</code> int</td>
+<td style="text-align: left;">The client's max number of peers allowed.</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --max-peers “70”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--max-inbound-peers</code> int</td>
+<td style="text-align: left;">The client's max number of inbound peers allowed.</td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag:--max-inbound-peers “50”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--max-outbound-peers</code> int</td>
+<td style="text-align: left;">The client's max number of outbound peers allowed.</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --max-outbound-peers “20”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--price-limit</code> uint</td>
+<td style="text-align: left;">The minimum gas price limit to enforce for acceptance into the pool.</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --price-limit “1”</td>
+<td style="text-align: left;">YES, this parameter can be changed by stopping the node and then starting it again with the server command and specifying --price-limit flag providing the new value e.g. --price-limit “5”</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--max-slots</code> uint</td>
+<td style="text-align: left;">Maximum slots in the transaction pool. When the maximum capacity is reached, transaction is not stored in the pool. One transaction occupies txSize/32kB number of slots. If e.g. --max-slots is 5, and there are tx1 which has 2kB and tx2 which has 33kB, that means that 3 slots are occupied and there are 2 free slots left. This parameter refers to the enqueued and promoted transactions in the pool.</td>
+<td style="text-align: left;">4096</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --max-slots “100000”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--max-enqueued</code> uint</td>
+<td style="text-align: left;">Maximum number of enqueued transactions in the pool per account.</td>
+<td style="text-align: left;">128</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --max-enqueued “200”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--access-control-allow-origins</code> stringArray</td>
+<td style="text-align: left;">The CORS(cross origin resource sharing) header indicating whether any JSON-RPC response can be shared with the specified origin.</td>
+<td style="text-align: left;">[]string{"*"}</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --access-control-allow-origins “https://foo.example”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--json-rpc-batch-request-limit</code> uint</td>
+<td style="text-align: left;">Max length to be considered when handling json-rpc batch requests, value of 0 disables it.</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --json-rpc-batch-request-limit</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--json-rpc-block-range-limit</code> uint</td>
+<td style="text-align: left;">Max block range to be considered when executing json-rpc requests that consider fromBlock/toBlock values (e.g. eth_getLogs), value of 0 disables it.</td>
+<td style="text-align: left;">1000</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --json-rpc-block-range-limit “2000”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--log-to</code> string</td>
+<td style="text-align: left;">Write all logs to the file at specified location instead of writing them to console.</td>
+<td style="text-align: left;">“”</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --log-to “edge-log.log”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--relayer</code></td>
+<td style="text-align: left;">Start the state sync relayer service.</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --relayer</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--num-block-confirmations</code> uint</td>
+<td style="text-align: left;">Minimal number of child blocks required for the parent block to be considered final. This parameter is used by the event Tracker when reading logs from the parent chain.</td>
+<td style="text-align: left;">64</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Command: server Flag: --num-block-confirmations “2”</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--concurrent-requests-debug</code> uint</td>
+<td style="text-align: left;">Maximal number of concurrent requests for debug endpoints.</td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>server --concurrent-requests-debug "50"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--websocket-read-limit</code> uint</td>
+<td style="text-align: left;">Maximum size in bytes for a message read from the peer by websocket.</td>
+<td style="text-align: left;">8192</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>server --websocket-read-limit "16384"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--relayer-poll-interval</code> duration</td>
+<td style="text-align: left;">Interval (number of seconds) at which relayer's tracker polls for latest block at childchain.</td>
+<td style="text-align: left;">1s</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>server --relayer-poll-interval "2s"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--metrics-interval</code> duration</td>
+<td style="text-align: left;">The interval (in seconds) at which special metrics are generated. A value of zero means the metrics are disabled.</td>
+<td style="text-align: left;">8s</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><code>server --metrics-interval "10s"</code></td>
+<td style="text-align: left;">NO</td>
+</tr>
+</tbody>
+</table>
+<p>:::info Mutually Exclusive Paramaters</p>
+<ul>
+<li><code>--max-inbound-peers</code>: The client's maximum number of inbound peers allowed. Default value is 32.</li>
+<li><code>--max-outbound-peers</code>: The client's maximum number of outbound peers allowed. Default value is 8.</li>
+</ul>
+<p>:::</p>
+<p></TabItem>
+</Tabs></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

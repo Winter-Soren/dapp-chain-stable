@@ -1,0 +1,2849 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../start-chain/">
+      
+      
+        <link rel="next" href="../../staking/stake/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>How to add and remove accounts - HAS docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#understanding-acl-and-address-roles" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="HAS docs" class="md-header__button md-logo" aria-label="HAS docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAS docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to add and remove accounts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="HAS docs" class="md-nav__button md-logo" aria-label="HAS docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HAS docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is HAS-Chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            System design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consensus
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Consensus
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/consensus/polybft/protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consensus protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/consensus/polybft/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polygon Byzantine Fault Tolerance (PolyBFT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/consensus/polybft/ibft/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Istanbul Byzantine Fault Tolerance (IBFT) 2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/libp2p/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Runtime
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Runtime
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/runtime/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/runtime/allowlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access control list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/mempool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MemoryPool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/txpool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction pool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/txrelayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction relayer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/jsonrpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON-RPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/grpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Build an HAS-powered chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Build an HAS-powered chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Prepare your environment
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Prepare your environment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install binaries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deploy a chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deploy a chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../local-chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to spawn a new child chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure a new child chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rootchain-config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure the rootchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genesis-validators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure the initial validator set
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start-chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to start your chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Operate your chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Operate your chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Access control
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Access control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to add and remove accounts
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How to add and remove accounts
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-acl-and-address-roles" class="md-nav__link">
+    Understanding ACL and Address Roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abi-specification" class="md-nav__link">
+    ABI Specification
+  </a>
+  
+    <nav class="md-nav" aria-label="ABI Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-functionalities" class="md-nav__link">
+    Key Functionalities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    How It Works
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interacting-with-an-acl" class="md-nav__link">
+    Interacting with an ACL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-interaction-with-ethersjs" class="md-nav__link">
+    Example Interaction with ethers.js
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Interaction with ethers.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-workflow" class="md-nav__link">
+    Sample Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interact-with-the-contractdeployer-acl" class="md-nav__link">
+    Interact with the ContractDeployer ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interact-with-transactions-acl" class="md-nav__link">
+    Interact with Transactions ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interact-with-the-bridge-acl" class="md-nav__link">
+    Interact with the Bridge ACL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Staking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Staking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../staking/stake/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to stake
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../staking/unstake/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to unstake
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transfers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Transfers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transfers/deposit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to deposit (rootchain->childchain)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transfers/withdraw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to withdrw (childchain->rootchain)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Assessment Framework
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Assessment Framework
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../assessment/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../assessment/algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RPC APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            RPC APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../api/json-rpc-eth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethereum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../api/json-rpc-net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Net
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../api/json-rpc-web3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../api/json-rpc-txpool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TxPool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../api/json-rpc-debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../api/json-rpc-bridge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bridge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../param-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config parameter reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Smart contract interfaces
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Smart contract interfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ERC20
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            ERC20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc20/native-erc20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NativeERC20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc20/childerc20-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC20Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc20/childerc20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc20/rooterc20-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RootERC20Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ERC721
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ERC721
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc721/childerc721/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC721
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc721/childerc721-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC721Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc721/rooterc721-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RootERC721Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ERC1155
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ERC1155
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc1155/childerc1155/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC1155
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc1155/childerc1155-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChildERC1155Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/erc1155/rooterc1155-predicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RootERC1155Predicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/eip1559/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EIP1559Burn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_5" id="__nav_6_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/network/checkpoint-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CheckpointManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/network/exit-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ExitHelper
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/network/state-receiver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StateReceiver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/network/state-sender/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StateSender
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_6" id="__nav_6_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Validators
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Validators
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/validators/validator-set-base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ValidatorSetBase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_7" id="__nav_6_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Staking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Staking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/staking/stake-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StakeManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/staking/supernet-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SupernetManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/staking/custom-supernet-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CustomSupernetManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_8" id="__nav_6_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cryptography
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Cryptography
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/cryptography/bls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BLS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interfaces/cryptography/bn256g2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BN256G2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../benchmarks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance benchmarks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-acl-and-address-roles" class="md-nav__link">
+    Understanding ACL and Address Roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abi-specification" class="md-nav__link">
+    ABI Specification
+  </a>
+  
+    <nav class="md-nav" aria-label="ABI Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-functionalities" class="md-nav__link">
+    Key Functionalities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    How It Works
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interacting-with-an-acl" class="md-nav__link">
+    Interacting with an ACL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-interaction-with-ethersjs" class="md-nav__link">
+    Example Interaction with ethers.js
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Interaction with ethers.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-workflow" class="md-nav__link">
+    Sample Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interact-with-the-contractdeployer-acl" class="md-nav__link">
+    Interact with the ContractDeployer ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interact-with-transactions-acl" class="md-nav__link">
+    Interact with Transactions ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interact-with-the-bridge-acl" class="md-nav__link">
+    Interact with the Bridge ACL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>How to add and remove accounts</h1>
+
+<h2 id="understanding-acl-and-address-roles">Understanding ACL and Address Roles</h2>
+<p>ACLs or Access Control Lists are a way of managing permissions in your Edge-powered chain. In this context, an ACL is essentially a list of addresses and their corresponding roles.</p>
+<p>:::info Keep in mind</p>
+<ul>
+<li><strong>Enabling Lists</strong>: Allowlists and blocklists are enabled or disabled exclusively during network initialization through the genesis command. Changes to the configuration cannot be made dynamically.</li>
+<li><strong>Admin Role</strong>: To enable a list, an admin role must be set in the genesis command. The admin manages the list and can only be specified during the network's initial setup.</li>
+<li><strong>Exclusive Enablement</strong>: It is not valid to enable both allowlists and blocklists for a given list type. If both lists are set, the allowlist takes precedence, and the blocklist is ignored.</li>
+<li><strong>System Transaction Address</strong>: The system transaction address (0xffffFFFfFFffffffffffffffFfFFFfffFFFfFFfE) is excluded from allowlist and blocklist validation. It is always allowed to perform actions and is not subject to list checks.</li>
+<li><strong>Impact on Validators and System Transactions</strong>: The impact of allowlists and blocklists on validators and system transactions can vary depending on network implementation.</li>
+</ul>
+<p>:::</p>
+<h2 id="abi-specification">ABI Specification</h2>
+<h3 id="overview">Overview</h3>
+<p>Below is an overview of the ABI for the ACL in Edge:</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>setAdmin<span class="o">(</span>address<span class="o">)</span>
+<span class="k">function</span><span class="w"> </span>setEnabled<span class="o">(</span>address<span class="o">)</span>
+<span class="k">function</span><span class="w"> </span>setNone<span class="o">(</span>address<span class="o">)</span>
+<span class="k">function</span><span class="w"> </span>readAddressList<span class="o">(</span>address<span class="o">)</span><span class="w"> </span>returns<span class="w"> </span><span class="o">(</span>uint256<span class="o">)</span>
+</code></pre></div>
+<h3 id="functions">Functions</h3>
+<p><strong>Roles can be one of three types:</strong></p>
+<ul>
+<li><code>NoRole</code>: The address has no permissions.</li>
+<li><code>EnabledRole</code>: The address has some permissions.</li>
+<li><code>AdminRole</code>: The address has all permissions and can change the roles of other addresses.</li>
+</ul>
+<p><strong>For more information about how ACLs work in Edge, check out the overview guide <a href="../../../../design/runtime/allowlist/"><ins>here</ins></a>.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nx">NoRole</span><span class="w">      </span><span class="nx">Role</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">Role</span><span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">StringToHash</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">))</span>
+<span class="nx">EnabledRole</span><span class="w"> </span><span class="nx">Role</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">Role</span><span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">StringToHash</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">))</span>
+<span class="nx">AdminRole</span><span class="w">   </span><span class="nx">Role</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">Role</span><span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">StringToHash</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">))</span>
+</code></pre></div>
+<ul>
+<li><strong>Function Signatures</strong>: The module provides functions to set or query roles:</li>
+<li>Set an address as an admin.</li>
+<li>Enable an address.</li>
+<li>Remove any role from an address.</li>
+<li>Read the role of an address.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">SetAdminFunc</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="nx">abi</span><span class="p">.</span><span class="nx">MustNewMethod</span><span class="p">(</span><span class="s">&quot;function setAdmin(address)&quot;</span><span class="p">)</span>
+<span class="nx">SetEnabledFunc</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nx">abi</span><span class="p">.</span><span class="nx">MustNewMethod</span><span class="p">(</span><span class="s">&quot;function setEnabled(address)&quot;</span><span class="p">)</span>
+<span class="nx">SetNoneFunc</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="nx">abi</span><span class="p">.</span><span class="nx">MustNewMethod</span><span class="p">(</span><span class="s">&quot;function setNone(address)&quot;</span><span class="p">)</span>
+<span class="nx">ReadAddressListFunc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">abi</span><span class="p">.</span><span class="nx">MustNewMethod</span><span class="p">(</span><span class="s">&quot;function readAddressList(address) returns (uint256)&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="key-functionalities">Key Functionalities</h3>
+<ul>
+<li><strong>Creating an AddressList</strong>: An instance of the AddressList is created with a reference to the state and the contract's address.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">NewAddressList</span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="nx">stateRef</span><span class="p">,</span><span class="w"> </span><span class="nx">addr</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Address</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">AddressList</span><span class="w"> </span><span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>Running the Contract</strong>: The <code>Run</code> function decodes the input to determine the function being called and executes it.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="nx">AddressList</span><span class="p">)</span><span class="w"> </span><span class="nx">Run</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">Contract</span><span class="p">,</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="nx">runtime</span><span class="p">.</span><span class="nx">Host</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">*</span><span class="nx">chain</span><span class="p">.</span><span class="nx">ForksInTime</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">ExecutionResult</span><span class="w"> </span><span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>Setting and Getting Roles</strong>: The module provides functions to assign a role to an address and to fetch the role of a given address.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="nx">AddressList</span><span class="p">)</span><span class="w"> </span><span class="nx">SetRole</span><span class="p">(</span><span class="nx">addr</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Address</span><span class="p">,</span><span class="w"> </span><span class="nx">role</span><span class="w"> </span><span class="nx">Role</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="nx">AddressList</span><span class="p">)</span><span class="w"> </span><span class="nx">GetRole</span><span class="p">(</span><span class="nx">addr</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Address</span><span class="p">)</span><span class="w"> </span><span class="nx">Role</span><span class="w"> </span><span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="how-it-works">How It Works</h3>
+<ol>
+<li>A call to the <code>AddressList</code> triggers the <code>Run</code> function.</li>
+<li>The function decodes the input to identify the function being called.</li>
+<li>If querying a role, the role of the provided address is returned.</li>
+<li>For modifying roles, checks are in place to ensure:</li>
+<li>The caller has enough gas.</li>
+<li>The call isn't static (read-only).</li>
+<li>Only admins can modify roles.</li>
+<li>Admins can't remove their own admin role.</li>
+</ol>
+<h2 id="interacting-with-an-acl">Interacting with an ACL</h2>
+<p>Edge ACLs are implemented as precompiles, which are built-in contracts within the Edge client. You can interact with these ACL precompiles using libraries like ether.js and web3.js.</p>
+<p>To interact with the ACL precompiles using an external library or client, follow these steps:</p>
+<ol>
+<li>
+<p>Obtain the ABI (Application Binary Interface) for the specific ACL precompile you want to interact with. The ABI contains the definitions of the precompile's functions, including their parameters and return types.</p>
+</li>
+<li>
+<p>Create a contract instance for the ACL precompile using the ABI and the provider connected to the Edge-powered chain.</p>
+</li>
+<li>
+<p>Use the contract instance to call the functions defined in the precompile's ABI. These functions allow you to manage the ACL by adding or removing accounts, modifying roles, or performing other ACL-related operations.</p>
+</li>
+</ol>
+<h2 id="example-interaction-with-ethersjs">Example Interaction with ethers.js</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Install ethers.js in your project using npm or yarn: <code>npm i --save ethers</code>.</li>
+<li>Ensure you have a wallet and some gas for transaction fees.</li>
+<li>Obtain the address and ABI of the ACL smart contract you want to interact with.</li>
+</ul>
+<p>:::note</p>
+<ul>
+<li>These operations should be performed by an account with the <code>AdminRole</code>.</li>
+<li>Make sure to replace the placeholders with your actual values.</li>
+<li>The await keyword must be used in an async function.</li>
+<li>Be mindful of transaction fees (gas costs) when interacting with the network.</li>
+</ul>
+<p>:::</p>
+<h3 id="sample-workflow">Sample Workflow</h3>
+<p>Create a contract instance for the ACL precompile using the ABI and the provider connected to the network.
+Please note that these examples are provided as guidance and assume the usage of ether.js, with Alice and Bob used as placeholders for specific agents.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ethers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ethers&#39;</span><span class="p">);</span>
+
+<span class="c1">// Connect to the provider (e.g., local node, Infura, Alchemy, etc.)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">providers</span><span class="p">.</span><span class="nx">JsonRpcProvider</span><span class="p">(</span><span class="s1">&#39;https://rpc-endpoint.io&#39;</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">ACLInterface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{...}];</span><span class="w"> </span><span class="c1">// Replace with the ABI of the Access List precompile</span>
+
+<span class="c1">// Contract Deployer Allow List</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">contractDeployerAlowListAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0xContractDeployerAllowListAddress&#39;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">contractDeployerAllowList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Contract</span><span class="p">(</span><span class="nx">contractDeployerAddress</span><span class="p">,</span><span class="w"> </span><span class="nx">ACLInterface</span><span class="p">,</span><span class="w"> </span><span class="nx">provider</span><span class="p">);</span>
+
+<span class="c1">// Transactions Allow List</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">transactionsAllowListAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0xTransactionsAllowListAddress&#39;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">transactionsAllowList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Contract</span><span class="p">(</span><span class="nx">transactionsAllowListAddress</span><span class="p">,</span><span class="w"> </span><span class="nx">ACLInterface</span><span class="p">,</span><span class="w"> </span><span class="nx">provider</span><span class="p">);</span>
+
+<span class="c1">// Transactions Block List</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">transactionsBlockListAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0xTransactionsBlockListAddress&#39;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">transactionsBlockList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Contract</span><span class="p">(</span><span class="nx">transactionsBlockListAddress</span><span class="p">,</span><span class="w"> </span><span class="nx">ACLInterface</span><span class="p">,</span><span class="w"> </span><span class="nx">provider</span><span class="p">);</span>
+
+<span class="c1">// Bridge Allow List</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bridgeAllowListAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0xBridgeAllowListAddress&#39;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bridgeAllowList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Contract</span><span class="p">(</span><span class="nx">bridgeAllowListAddress</span><span class="p">,</span><span class="w"> </span><span class="nx">ACLInterface</span><span class="p">,</span><span class="w"> </span><span class="nx">provider</span><span class="p">);</span>
+
+<span class="c1">// Bridge Block List</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bridgeBlockListAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0xBridgeBlockListAddress&#39;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bridgeBlockList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Contract</span><span class="p">(</span><span class="nx">bridgeBlockListAddress</span><span class="p">,</span><span class="w"> </span><span class="nx">ACLInterface</span><span class="p">,</span><span class="w"> </span><span class="nx">provider</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="interact-with-the-contractdeployer-acl">Interact with the ContractDeployer ACL</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example interaction with the Contract Deployer ACL</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">addrAlice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0xAliceAddress&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Replace with Alice&#39;s address</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">addrBob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0xBobAddress&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Replace with Bob&#39;s address</span>
+
+<span class="c1">// Add Alice&#39;s address to the contract deployer allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistContractDeployerTx1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">contractDeployerAllowList</span><span class="p">.</span><span class="nx">setEnabled</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">allowlistContractDeployerTx1</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Remove Alice&#39;s address from the contract deployer allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistContractDeployerTx2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">contractDeployerAllowList</span><span class="p">.</span><span class="nx">setNone</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">allowlistContractDeployerTx2</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Add Bob&#39;s address to the contract deployer allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistContractDeployerTx3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">contractDeployerAllowList</span><span class="p">.</span><span class="nx">setEnabled</span><span class="p">(</span><span class="nx">addrBob</span><span class="p">);</span>
+<span class="nx">allowlistContractDeployerTx3</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Remove Bob&#39;s address from the contract deployer allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistContractDeployerTx4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">contractDeployerAllowList</span><span class="p">.</span><span class="nx">setNone</span><span class="p">(</span><span class="nx">addrBob</span><span class="p">);</span>
+<span class="nx">allowlistContractDeployerTx4</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="interact-with-transactions-acl">Interact with Transactions ACL</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Add Bob&#39;s address to the transaction allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistTxTx1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transactionsAllowList</span><span class="p">.</span><span class="nx">setEnabled</span><span class="p">(</span><span class="nx">addrBob</span><span class="p">);</span>
+<span class="nx">allowlistTxTx1</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Remove Bob&#39;s address from the transaction allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistTxTx2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transactionsAllowList</span><span class="p">.</span><span class="nx">setNone</span><span class="p">(</span><span class="nx">addrBob</span><span class="p">);</span>
+<span class="nx">allowlistTxTx2</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Add Alice&#39;s address to the transaction blocklist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">blocklistTxTx1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transactionsBlockList</span><span class="p">.</span><span class="nx">setEnabled</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">blocklistTxTx1</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Remove Alice&#39;s address from the transaction blocklist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">blocklistTxTx2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transactionsBlockList</span><span class="p">.</span><span class="nx">setNone</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">blocklistTxTx2</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="interact-with-the-bridge-acl">Interact with the Bridge ACL</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Add Alice&#39;s address to the bridge allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistBridgeTx1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bridgeAllowList</span><span class="p">.</span><span class="nx">setEnabled</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">allowlistBridgeTx1</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Remove Alice&#39;s address from the bridge allowlist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">allowlistBridgeTx2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bridgeAllowList</span><span class="p">.</span><span class="nx">setNone</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">allowlistBridgeTx2</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Add Alice&#39;s address to the bridge blocklist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">blocklistBridgeTx1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bridgeBlockList</span><span class="p">.</span><span class="nx">setEnabled</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">blocklistBridgeTx1</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="c1">// Remove Alice&#39;s address from the bridge blocklist</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">blocklistBridgeTx2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bridgeBlockList</span><span class="p">.</span><span class="nx">setNone</span><span class="p">(</span><span class="nx">addrAlice</span><span class="p">);</span>
+<span class="nx">blocklistBridgeTx2</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>
